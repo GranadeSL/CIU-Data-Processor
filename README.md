@@ -9,3 +9,5 @@ MSConvert can be found here: https://proteowizard.sourceforge.io/
 CIUSuite Software can be found here: https://github.com/RuotoloLab/CIUSuite2
 
 Currently, the drift times obtained with this program does not match the values shown by MassLynx from Waters.
+
+To install the program, it is sufficient to download the .py file.
