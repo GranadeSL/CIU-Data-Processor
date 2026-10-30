@@ -36,10 +36,6 @@ CONFIG_FILE = _base_dir / "msconvert_config.txt"
 SESSION_FILE = _base_dir / "ciu_session.json"
 
 
-# ============================================================
-# Backend logic
-# ============================================================
-
 def find_msconvert():
     """Try common install locations for msconvert.exe"""
     candidates = []
@@ -198,7 +194,6 @@ def count_functions_in_mzml(mzml_path):
 
         return funcs
     except Exception as e:
-        # Silently fail - pyopenms may not be available
         return {}
 
 def process_tetramer(tetramer_name, mz_range_min, mz_range_max, mzml_path,
@@ -268,8 +263,6 @@ def process_tetramer(tetramer_name, mz_range_min, mz_range_max, mzml_path,
     else:
         dt_start, dt_interval = dt_calibration
         if sorted_dts:
-            # Infer the true bin spacing from the file rather than assuming
-            # the observed times are contiguous.
             if len(sorted_dts) > 1:
                 diffs = np.diff(sorted_dts)
                 raw_spacing = float(np.median(diffs))
